@@ -8146,11 +8146,10 @@
 		$('#lobby-players').html(nameList);
 
 		var privateGame = data.private == true;
-		$('#lobby-privacy').toggle(privateGame);
-		if (privateGame) {
-			var gid = data.gid;
-			$('#lobby-private-code').html('<a href="/join/'+gid+'" target="_blank">http://secrethitler.games/join/<strong>' + gid + '</strong></a>');
-		}
+		$('#private-lobby').toggle(privateGame);
+		$('#public-lobby').toggle(!privateGame);
+		var gid = data.gid;
+		$('#lobby-code').html('<a href="/join/'+gid+'" target="_blank">http://secrethitler.games/join/<strong>' + gid + '</strong></a>');
 	};
 
 	var showLobbySection = function(subsection, forced) {
