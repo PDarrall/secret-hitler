@@ -125,7 +125,7 @@ $('#menu-about').on('click', function() {
 
 $('#menu-quit').on('click', function() {
 	var confirmed = true;
-	if (State.inGame) {
+	if (State.started && !State.finished) {
 		confirmed = window.confirm('Are you sure you want to abandon this game?', 'Your fellow players will be sad, and you\'ll lose points :(');
 	}
 	if (confirmed) {
