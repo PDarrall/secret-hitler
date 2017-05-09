@@ -167,3 +167,106 @@
 	bottom: 0;
 	font-size: 0.7em;
 }
+
+#mobile-tabs {
+	display: none;
+}
+
+@media (max-width:500px) {
+	#board-container {
+		bottom: auto;
+		position: relative;
+		height: 217px;
+	}
+
+	.board-component {
+		height: 77px;
+	}
+
+	#board {
+		border-radius: 0;
+	}
+
+	#mobile-tabs {
+		display: block;
+	}
+
+	#mobile-tabs a{
+		color: #393734;
+		font-weight: 400;
+		font-size: 14px;
+		padding: 5px 34px;
+		display: inline-block;
+		border-right: 1px solid #77bece;
+		border-bottom: 8px solid transparent;
+	}
+
+	#mobile-tabs {
+		border: 1px solid #979797;
+	}
+	#mobile-tabs a.selected {
+		border-bottom-color: #77bece;
+	}
+
+	#players {
+		min-height: initial;
+	}
+
+	#tracker-title {
+		display: none;
+	}
+
+	#tracker-description {
+		display: none;
+	}
+
+	#board-policy-piles {
+		height: 63px;
+		padding: 0;
+		position: relative;
+	}
+
+	#board-policy-piles .policy-placeholder {
+		height: 55%;
+		padding-top: 0;
+		width: 12%;
+	}
+
+	.pile-cards {
+		font-size: 14px;
+	}
+
+	.pile-label {
+		letter-spacing: 1px;
+	}
+
+	.card-pile {
+		padding-bottom: 3%;
+	}
+
+	#election-tracker {
+		width: 19%;
+		height: 24px;
+		position: absolute;
+		top: 0;
+		right: 16px;
+	}
+
+	.tracker-slot {
+		border-width: 1px;
+		max-width: 4vw;
+		max-height: 4vw;
+	}
+
+	#pile-draw {
+		position: absolute;
+		top: 23px;
+		right: 74px;
+	}
+
+	#pile-discard {
+		position: absolute;
+		top: 23px;
+		right: 17px;
+	}
+}

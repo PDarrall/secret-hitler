@@ -56,6 +56,16 @@ $('#cards-veto').on('click', '.card', function() {
 	Action.emit('policy', {veto: $(this).data('veto') == true});
 });
 
+$('#mobile-tabs').on('click', 'a', function(e) {
+	$('#mobile-tabs a').removeClass('selected');
+	$(e.currentTarget).addClass('selected');
+
+	var isChat = $.trim(e.currentTarget.text) == "Chat";
+
+	$('#players').toggle(!isChat);
+	$('#chat-container-game').toggle(isChat);
+});
+
 //PUBLIC
 
 module.exports = {

@@ -135,3 +135,35 @@
 		flex-grow: 2;
 	}
 }
+
+@media (max-width:500px) {
+	#directive {
+		height: 25px;
+		font-size: 11px;
+		line-height: 24px;
+		font-weight: 400;
+	}
+
+	#s-game.directive #game-container {
+		padding-top: 25px;
+	}
+
+	#game-container {
+		justify-content: flex-end;
+	}
+
+	#game-mat {
+		height: auto;
+		min-height: initial;
+	}
+
+	#game-area {
+		flex-grow: 0;
+		height: 253px;
+	}
+
+	#chat-container-game {
+		height: 100%;
+		flex-basis: auto;
+	}
+}
