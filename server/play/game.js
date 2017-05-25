@@ -67,14 +67,8 @@ var emitLobby = function(target) {
 	target.emit('lobby games stats', {games: lobbyGames, players: lobbyPlayers});
 };
 
-var Game = function(restoreData, options, socket) {
-	options = options || {};
-
-	var game         = this,
-	    size         = options.size,
-	    privateGame  = options.privateGame,
-	    canViewVotes = options.canViewVotes || false;
-
+var Game = function(restoreData, size, privateGame, socket) {
+	var game = this;
 	if (restoreData) {
 		this.replaying = true;
 		this.players = restoreData.player_ids.split(',');
@@ -91,7 +85,6 @@ var Game = function(restoreData, options, socket) {
 	} else {
 		this.maxSize = size;
 		this.private = privateGame;
-		this.canViewVotes = canViewVotes;
 
 		this.players = [];
 		this.history = [];

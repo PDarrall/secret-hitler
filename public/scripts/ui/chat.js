@@ -50,18 +50,13 @@ var insertMessage = function(player, message, isAction) {
 	var messageHtml = prefix + message + '</p>';
 	var chatId = State.started ? 'game' : 'lobby';
 	var chatContainer = $('#chat-container-' + chatId);
-
-	var scrollPos = chatContainer.scrollTop() + chatContainer.height();
-	var scrollHeight = chatContainer.prop('scrollHeight');
 	chatContainer.append(messageHtml);
 
 	if (scrollTimeout) {
 		clearTimeout(scrollTimeout);
 	}
 	scrollTimeout = setTimeout(function() {
-
-		// Only refresh scroll on insert message if scroll at bottom
-		if (scrollPos == scrollHeight) chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
+		chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
 		scrollTimeout = null;
 	}, 200);
 };
@@ -123,9 +118,7 @@ $('#i-chat').on('keydown', function(event) {
 
 	var key = event.which || event.keyCode || event.charCode;
 	if (key == 13) {
-		if ($(window).width() <= 500) {
-			$(this).blur();
-		}
+		$(this).blur();
 		var simplified = $('<span>'+this.value+'</span>').text().trim();
 		if (simplified.length > 1) {
 			require('socket/action').emit('chat', {msg: simplified});

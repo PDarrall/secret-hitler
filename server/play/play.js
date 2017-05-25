@@ -144,18 +144,6 @@ var voteAction = function(data, puid, game, callback) {
 		var voteData = {supporters: supporters, elected: elected, forced: forced, hitler: isFuehrer};
 		voteData = game.emitAction('voted', voteData, secret);
 		return voteData;
-	} else if (game.canViewVotes) {
-		var voteProcess = {votes: {}};
-		for (var idx = 0; idx < game.players.length; idx += 1) {
-			var uid = game.players[idx];
-			var playerState = game.playerState(uid);
-			voteProcess.votes[uid] = playerState.vote;
-			if (playerState && !playerState.killed && playerState.vote == null) {
-				doneVoting = false;
-			}
-		}
-		voteProcess = game.emitAction('vote process', voteProcess);
-		return voteProcess;
 	}
 };
 
