@@ -29,8 +29,6 @@ var processAction = function(data) {
 	} else if (action == 'voted') {
 //		Audio.votedAlert();
 		Game.voteCompleted(data);
-	} else if (action == 'vote process') {
-		Game.voteProcess(data);
 	} else if (action == 'discarded') {
 		Policies.discarded(data);
 	} else if (action == 'enacted') {

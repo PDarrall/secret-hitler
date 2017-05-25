@@ -167,9 +167,8 @@ $('#lobby-button-signout').on('click', function() {
 
 $('#lobby-create-confirm').on('click', function() {
 	var createData = {
-		size:         $('#create-game-size').val(),
-		private:      $('#create-game-privacy').prop('checked'),
-		canViewVotes: $('#create-game-vote-progress').prop('checked')
+		size: $('#create-game-size').val(),
+		private: $('#create-game-privacy').prop('checked'),
 	};
 	Socket.emit('room create', createData, function(response) {
 		showLobbySection(response.success ? 'wait' : 'start');
